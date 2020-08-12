@@ -1,16 +1,16 @@
 Package: firstPackage
-Title: What the Package Does (One Line, Title Case)
+Title: automatically retrieve sequences from a databank based on accession numbers
 Version: 0.0.0.9000
-Depends:
+Depends: seqinr
 Imports:
 Authors@R: 
-    person(given = "esteban",
-           family = "antonicelli",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID="YOUR-ORCID-ID"))
+    person(given="esteban",
+           family="antonicelli",
+           role=c("aut", "cre"),
+           email="esteban.antonicelli@gmail.com",
+           comment=c(ORCID="YOUR-ORCID-ID"))
 Mantainer:
-Description: What the package does (one paragraph).
+Description: retrieve sequences of DNA, RNA or protein from databases structured under ACNUC and located on the web, the retrieval is limited to accession numbers as selection criteria
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 URL: https://github.com/geantonicelli/firstPackage
