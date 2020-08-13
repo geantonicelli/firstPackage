@@ -32,8 +32,9 @@ following the protocol described \href{http://doua.prabi.fr/databases/acnuc/remo
 }
 \examples{
 seqs <- retrieve_seqs(c('P06747', 'P0C569', 'O56773', 'Q5VKP1'), 'swissprot')
-\dontrun{viruses_annot <- read.csv(system.file('extdata', 'CoV_genomes_annot.csv', package='firstPackage')}
+\dontrun{viruses_annot <- read.csv(system.file('extdata', 'CoV_genomes_annot.csv', package='firstPackage'))}
 \dontrun{accessions <- viruses_annot$accession}
-\dontrun{seqs <- retrieveseqs(accessions, 'genbank')}
+\dontrun{seqs <- retrieve_seqs(accessions, 'genbank')}
+\dontrun{str(seqs)}
 
 }
