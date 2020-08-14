@@ -32,8 +32,12 @@ clustal or msf and to convert it in the best suitable object class for
 generating a distance matrix either with the seqnir or the ape package
 }
 \examples{
-virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', package='firstPackage'), format='phylip')
-cleanedvirusaln <- clean_alignment(virusaln, 30, 30)
-print_alignment(cleanedvirusaln)
+fastaRNA <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
+phylipRNA  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
+phylipProt <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
+# loading a RNA sequences alignment as an object of class alignment for the seqinr package and not the default class DNAbin for the ape package
+clustalRNA <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
+msfRNA <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
+maseProtein <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
 
 }
