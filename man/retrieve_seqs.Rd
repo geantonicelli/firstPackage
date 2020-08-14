@@ -8,12 +8,12 @@ accession numbers}
 retrieve_seqs(seqnames, acnucdb)
 }
 \arguments{
-\item{seqnames}{list of accession numbers as character strings of the
+\item{seqnames}{a character vector specifying the accession numbers of the
 sequences to be retrieved}
 
-\item{acnucdb}{character string with the name of the ACNUC database to be
-searched. Use \code{\link[seqinr]{choosebank}} without arguments to see a
-list of available databases}
+\item{acnucdb}{a character string specifying the name of the ACNUC database
+to be searched. Use \code{\link[seqinr]{choosebank}} without arguments to
+see a list of available databases}
 }
 \value{
 this function returns a named list with the sequences matching the
@@ -28,7 +28,8 @@ databases structured under ACNUC and located on the web, the retrieval is
 limited to accession numbers as selection criteria, remote access to ACNUC
 databases works by opening a socket connection on a port (for example on port
 number 5558 at pbil.univ-lyon1.fr) and by communicating on this socket
-following the protocol described \href{http://doua.prabi.fr/databases/acnuc/remote_acnuc.html}{here}
+following the protocol described
+\href{http://doua.prabi.fr/databases/acnuc/remote_acnuc.html}{here}
 }
 \examples{
 seqs <- retrieve_seqs(c('P06747', 'P0C569', 'O56773', 'Q5VKP1'), 'swissprot')
