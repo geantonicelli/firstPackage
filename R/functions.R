@@ -201,13 +201,20 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #'   function returns an object of class alignment of the package seqinr
 #'
 #' @examples
-#' fastaRNA <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
-#' phylipRNA  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
-#' phylipProt <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
+#' fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
+#' phylipRNA_load  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
+#' phylipProt_load <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
 #' # loading a RNA sequences alignment as an object of class alignment for the seqinr package and not the default class DNAbin for the ape package
-#' clustalRNA <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
-#' msfRNA <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
-#' maseProtein <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
+#' clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
+#' msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
+#' maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
+#'
+#' # data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
+#' # data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
+#' # data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))
+#' # data(clustalRNA); stopifnot(identical(clustalRNA, clustalRNA_load))
+#' # data(msfRNA); stopifnot(identical(msfRNA, msfRNA_load))
+#' # data(maseProtein); stopifnot(identical(maseProtein, maseProtein_load))
 #'
 #' @importFrom seqinr read.alignment
 #' @importFrom adegenet fasta2DNAbin
