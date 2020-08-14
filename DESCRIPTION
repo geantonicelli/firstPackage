@@ -1,8 +1,9 @@
 Package: firstPackage
 Title: automatically retrieve sequences from a databank based on accession numbers
 Version: 0.0.0.9000
-Depends: seqinr
-Imports:
+Depends: 
+    seqinr,
+    R (>= 2.10)
 Authors@R: 
     person(given="esteban",
            family="antonicelli",
