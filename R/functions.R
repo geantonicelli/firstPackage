@@ -242,20 +242,42 @@ load_alignment <- function(file, format, type='protein'){
 #' function to calculate a phylogenetic tree
 #'
 #' this function is wrapper around the functions
+#'   \code{\link[seqnir]{dist.alignment}}, \code{\link[ape]{dist.dna}},
+#'   \code{\link[ape]{nj}}, \code{\link[ape]{bionj}},
+#'   \code{\link[ape]{fastme.bal}}, \code{\link[ape]{fastme.ols}},
+#'   \code{\link[ape]{boot.phylo}} and \code{\link[ape]{plot.phylo}}. it takes a
+#'   sequences alignment in format alignment of DNAbin matrix and perform all
+#'   transformations and steps to calculate a phylogenetic distance matrix based
+#'   on similarity or identity in the case of proteins or based in evolutionary
+#'   models in the case of DNA or RNA, to perform a phylogenetic clustering and to
+#'   draft plot the results for exploratory visualization in order to adjust and
+#'   compare the calculations
 #'
-#' @param alignment an object of class alignment or DNAbin containing a DNA, RNA or protein sequences alignment
+#' @param alignment an object of class alignment or DNAbin containing a DNA, RNA
+#'   or protein sequences alignment
+#' @param type a character string without '' specifying the type of sequences,
+#'   i.e. DNA, RNA or protein (without default value)
+#' @param model a character string without '' specifying the model to be used
+#'   for the calculation of the distances matrix, i.e. raw, N, TS, TV, JC69,
+#'   K80, F81, K81, F84, BH87, T92, TN93 (default), GG95, logdet, paralin,
+#'   indel, or indelblock
+#' @param clustering a character string without '' specifying the clustering
+#'   algorithm to be used to build the phylogenetic tree, i.e classic
+#'   neighbor-joining (nj), improved neighbor-joining (bionj) (default),
+#'   balanced minimum evolution principle (fastme.bal), ordinary least-squares
+#'   minimum evolution principle (fastme.ols)
+#' @param outgroup a character string without '' specifying a taxon to be taken
+#'   as root for building the tree. The default value is NULL leading to an
+#'   unrooted tree
+#' @param plot a character string without '' specifying the type of phylogenetic
+#'   plot to be drawn for visualization of the phylogenetic calculations, i.e.
+#'   phylogram, cladogram, fan, unrooted (default), radial or any unambiguous
+#'   abbreviation of these
 #'
-#' @param type a character string without '' specifying the type of sequences, i.e. DNA, RNA or protein
-#'
-#' @param model a character string without '' specifying the model to be used for the calculation of the distances matrix, i.e. raw, N, TS, TV, JC69, K80, F81, K81, F84, BH87, T92, TN93 (default), GG95, logdet, paralin, indel, or indelblock
-#
-#' @param clustering
-#'
-#' @param outgroup
-#'
-#' @param plot
-#'
-#' @return the function returns an object of class phylo of the ape package and a draft plot to visualize the phylogenetic calculations
+#' @return the function returns an object of class phylo of the ape package and
+#'   a draft plot to visualize the phylogenetic calculations. More advanced and
+#'   elaborated plots can be drawn in later steps based on the tree data of the
+#'   phylo class object
 #'
 #' @examples
 #' phylipProtTree <- makeTree(data(phylipProt), type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)

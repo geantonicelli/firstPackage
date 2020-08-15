@@ -14,23 +14,50 @@ make_tree(
 )
 }
 \arguments{
-\item{alignment}{an object of class alignment or DNAbin containing a DNA, RNA or protein sequences alignment}
+\item{alignment}{an object of class alignment or DNAbin containing a DNA, RNA
+or protein sequences alignment}
 
-\item{type}{a character string without '' specifying the type of sequences, i.e. DNA, RNA or protein}
+\item{type}{a character string without '' specifying the type of sequences,
+i.e. DNA, RNA or protein (without default value)}
 
-\item{model}{a character string without '' specifying the model to be used for the calculation of the distances matrix, i.e. raw, N, TS, TV, JC69, K80, F81, K81, F84, BH87, T92, TN93 (default), GG95, logdet, paralin, indel, or indelblock}
+\item{model}{a character string without '' specifying the model to be used
+for the calculation of the distances matrix, i.e. raw, N, TS, TV, JC69,
+K80, F81, K81, F84, BH87, T92, TN93 (default), GG95, logdet, paralin,
+indel, or indelblock}
 
-\item{clustering}{}
+\item{clustering}{a character string without '' specifying the clustering
+algorithm to be used to build the phylogenetic tree, i.e classic
+neighbor-joining (nj), improved neighbor-joining (bionj) (default),
+balanced minimum evolution principle (fastme.bal), ordinary least-squares
+minimum evolution principle (fastme.ols)}
 
-\item{outgroup}{}
+\item{outgroup}{a character string without '' specifying a taxon to be taken
+as root for building the tree. The default value is NULL leading to an
+unrooted tree}
 
-\item{plot}{}
+\item{plot}{a character string without '' specifying the type of phylogenetic
+plot to be drawn for visualization of the phylogenetic calculations, i.e.
+phylogram, cladogram, fan, unrooted (default), radial or any unambiguous
+abbreviation of these}
 }
 \value{
-the function returns an object of class phylo of the ape package and a draft plot to visualize the phylogenetic calculations
+the function returns an object of class phylo of the ape package and
+a draft plot to visualize the phylogenetic calculations. More advanced and
+elaborated plots can be drawn in later steps based on the tree data of the
+phylo class object
 }
 \description{
 this function is wrapper around the functions
+\code{\link[seqnir]{dist.alignment}}, \code{\link[ape]{dist.dna}},
+\code{\link[ape]{nj}}, \code{\link[ape]{bionj}},
+\code{\link[ape]{fastme.bal}}, \code{\link[ape]{fastme.ols}},
+\code{\link[ape]{boot.phylo}} and \code{\link[ape]{plot.phylo}}. it takes a
+sequences alignment in format alignment of DNAbin matrix and perform all
+transformations and steps to calculate a phylogenetic distance matrix based
+on similarity or identity in the case of proteins or based in evolutionary
+models in the case of DNA or RNA, to perform a phylogenetic clustering and to
+draft plot the results for exploratory visualization in order to adjust and
+compare the calculations
 }
 \examples{
 phylipProtTree <- makeTree(data(phylipProt), type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)
