@@ -60,7 +60,9 @@ draft plot the results for exploratory visualization in order to adjust and
 compare the calculations
 }
 \examples{
-phylipProtTree <- makeTree(data(phylipProt), type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)
-phylipRNATree <- makeTree(data(phylipRNA), type=RNA, clustering=fastme.bal, plot=clado)
+data(phylipProt)
+data(phylipRNA)
+phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)
+phylipRNATree <- make_tree(phylipRNA, type=RNA, clustering=fastme.bal, plot=clado)
 
 }
