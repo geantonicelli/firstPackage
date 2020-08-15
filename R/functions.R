@@ -282,8 +282,10 @@ load_alignment <- function(file, format, type='protein'){
 #' @examples
 #' data(phylipProt)
 #' data(phylipRNA)
+#' data(clustalRNA)
 #' phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)
 #' phylipRNATree <- make_tree(phylipRNA, type=RNA, clustering=fastme.bal, plot=clado)
+#' clustalRNATree <- make_tree(clustalRNA, type=RNA)
 #'
 #' @importFrom seqinr dist.alignment
 #' @importFrom seqinr as.matrix.alignment
@@ -313,7 +315,7 @@ make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NU
                                                 mydist <- dist.alignment(alignment)
                                                 }
                                              else if(seqtype=='DNA'|| seqtype=='RNA'){
-                                                     if(class(alignmat)=='DNAbin'){DNAbin <- alignmat}
+                                                     if(class(alignmat)[[1]]=='DNAbin'){DNAbin <- alignmat}
                                                      else{alignment <- as.alignment(alignmat)
                                                           DNAbin <- as.DNAbin(alignment)
                                                           }
