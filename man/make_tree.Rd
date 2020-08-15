@@ -47,7 +47,7 @@ elaborated plots can be drawn in later steps based on the tree data of the
 phylo class object
 }
 \description{
-this function is wrapper around the functions
+this function is a wrapper around the functions
 \code{\link[seqnir]{dist.alignment}}, \code{\link[ape]{dist.dna}},
 \code{\link[ape]{nj}}, \code{\link[ape]{bionj}},
 \code{\link[ape]{fastme.bal}}, \code{\link[ape]{fastme.ols}},
