@@ -68,3 +68,9 @@ phylipRNATree <- make_tree(phylipRNA, type=RNA, clustering=fastme.bal, plot=clad
 clustalRNATree <- make_tree(clustalRNA, type=RNA)
 
 }
+\seealso{
+\code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{load_alignment}}
+}
+\author{
+gerardo esteban antonicelli
+}

@@ -13,14 +13,18 @@
 #' @param seqnames a character vector specifying the accession numbers of the
 #'   sequences to be retrieved
 #' @param acnucdb a character string specifying the name of the ACNUC database
-#'   to be searched. Use \code{\link[seqinr]{choosebank}} without arguments to
+#'   to be searched. Use \code{\link{seqinr::choosebank}} without arguments to
 #'   see a list of available databases
 #'
 #' @return this function returns a named list with the sequences matching the
 #'   sequence names of class SeqAcnucWeb retrieved by
-#'   \code{\link[seqinr]{query}} based on the provided accession numbers the
+#'   \code{seqinr::query} based on the provided accession numbers the
 #'   name of each list item is composed of the accession number and the length
 #'   of the sequence
+#'
+#' @author gerardo esteban antonicelli
+#'
+#' @seealso \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
 #'
 #' @examples
 #' seqs <- retrieve_seqs(c('P06747', 'P0C569', 'O56773', 'Q5VKP1'), 'swissprot')
@@ -66,6 +70,10 @@ retrieve_seqs <- function(seqnames, acnucdb){
 #'
 #' @return this function print the sequence alignment to the console in an
 #'   ordered fashion
+#'
+#' @author gerardo esteban antonicelli
+#'
+#' @seealso \code{\link{retrieve_seqs}} \code{\link{clean_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
 #'
 #' @examples
 #' virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', package='firstPackage'), format='phylip')
@@ -122,6 +130,10 @@ print_alignment <- function(alignment, chunksize=60){
 #'   identity between alignments for each position being analysed
 #'
 #' @return this function returns a sequences alignment in phylip format
+#'
+#' @author gerardo esteban antonicelli
+#'
+#' @seealso \code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
 #'
 #' @examples
 #' virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', package='firstPackage'), format='phylip')
@@ -199,6 +211,10 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #' @return if the input type is DNA or RNA this function returns an object of
 #'   class DNAbin, if the input type is protein or unspecified (default) this
 #'   function returns an object of class alignment of the package seqinr
+#'
+#' @author gerardo esteban antonicelli
+#'
+#' @seealso \code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{make_tree}}
 #'
 #' @examples
 #' fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
@@ -278,6 +294,10 @@ load_alignment <- function(file, format, type='protein'){
 #'   a draft plot to visualize the phylogenetic calculations. More advanced and
 #'   elaborated plots can be drawn in later steps based on the tree data of the
 #'   phylo class object
+#'
+#' @author gerardo esteban antonicelli
+#'
+#' @seealso \code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{load_alignment}}
 #'
 #' @examples
 #' data(phylipProt)

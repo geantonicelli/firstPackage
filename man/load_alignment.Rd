@@ -50,3 +50,9 @@ data(msfRNA); stopifnot(identical(msfRNA, msfRNA_load))
 data(maseProtein); stopifnot(identical(maseProtein, maseProtein_load))
 
 }
+\seealso{
+\code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{make_tree}}
+}
+\author{
+gerardo esteban antonicelli
+}

@@ -31,3 +31,9 @@ virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', pa
 print_alignment(virusaln, 80)
 
 }
+\seealso{
+\code{\link{retrieve_seqs}} \code{\link{clean_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+}
+\author{
+gerardo esteban antonicelli
+}

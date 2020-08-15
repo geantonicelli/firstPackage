@@ -39,3 +39,9 @@ cleanedvirusaln <- clean_alignment(virusaln, 30, 30)
 print_alignment(cleanedvirusaln)
 
 }
+\seealso{
+\code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+}
+\author{
+gerardo esteban antonicelli
+}
