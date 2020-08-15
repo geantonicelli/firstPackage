@@ -39,7 +39,9 @@ loading a RNA sequences alignment as an object of class alignment for the seqinr
 clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
 msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
 maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
-
+#
+# quality control routine sanity checks:
+#
 data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
 data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
 data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))

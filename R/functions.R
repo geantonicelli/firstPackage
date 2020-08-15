@@ -208,7 +208,9 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #' clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
 #' msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
 #' maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
-#'
+#' #
+#' # quality control routine sanity checks:
+#' #
 #' data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
 #' data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
 #' data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))
@@ -236,3 +238,76 @@ load_alignment <- function(file, format, type='protein'){
                                    }
                            return(alignment)
                            }
+
+#' function to calculate a phylogenetic tree
+#'
+#' this function is wrapper around the functions
+#'
+#' @param alignment an object of class alignment or DNAbin containing a DNA, RNA or protein sequences alignment
+#'
+#' @param type a character string without '' specifying the type of sequences, i.e. DNA, RNA or protein
+#'
+#' @param model a character string without '' specifying the model to be used for the calculation of the distances matrix, i.e. raw, N, TS, TV, JC69, K80, F81, K81, F84, BH87, T92, TN93 (default), GG95, logdet, paralin, indel, or indelblock
+#
+#' @param clustering
+#'
+#' @param outgroup
+#'
+#' @param plot
+#'
+#' @return the function returns an object of class phylo of the ape package and a draft plot to visualize the phylogenetic calculations
+#'
+#' @examples
+#' phylipProtTree <- makeTree(data(phylipProt), type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)
+#' phylipRNATree <- makeTree(data(phylipRNA), type=RNA, clustering=fastme.bal, plot=clado)
+#'
+#' @importFrom seqinr dist.alignment
+#' @importFrom seqinr as.matrix.alignment
+#' @importFrom ape as.alignment
+#' @importFrom ape as.DNAbin
+#' @importFrom ape dist.dna
+#' @importFrom ape nj
+#' @importFrom ape bionj
+#' @importFrom ape fastme.bal
+#' @importFrom ape fastme.ols
+#' @importFrom ape makeLabel
+#' @importFrom ape ladderize
+#' @importFrom ape root
+#' @importFrom ape boot.phylo
+#' @importFrom ape plot.phylo
+#' @importFrom ape nodelabels
+#'
+#' @export
+make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NULL, plot=u){
+                      seqtype <- deparse(substitute(type))
+                      distmodel <- deparse(substitute(model))
+                      out <- deparse(substitute(outgroup))
+                      plottype <- deparse(substitute(plot))
+                      makemytree <- function(alignmat){
+                                             if(seqtype=='protein'){
+                                                alignment <- as.alignment(alignmat)
+                                                mydist <- dist.alignment(alignment)
+                                                }
+                                             else if(seqtype=='DNA'|| seqtype=='RNA'){
+                                                     if(class(alignmat)=='DNAbin'){DNAbin <- alignmat}
+                                                     else{alignment <- as.alignment(alignmat)
+                                                          DNAbin <- as.DNAbin(alignment)
+                                                          }
+                                                     mydist <- dist.dna(DNAbin, model=distmodel)
+                                                     }
+                                             mytree <- eval(substitute(clustering(mydist)))
+                                             mytree <- makeLabel(mytree, space='')
+                                             mytree <- ladderize(mytree)
+                                             if(out=='NULL'){my_tree <- mytree}
+                                             else{my_tree <- root(mytree, outgroup=out, r=TRUE)}
+                                             return(my_tree)
+                                             }
+                      if(class(alignment)=='DNAbin'){mymat <- alignment}
+                      else{mymat  <- as.matrix.alignment(alignment)}
+                      mytree <- makemytree(mymat)
+                      myboot <- boot.phylo(mytree, mymat, makemytree)
+                      plot.phylo(mytree, type=plottype)
+                      nodelabels(myboot, cex=0.7)
+                      mytree$node.label <- myboot
+                      return(mytree)
+                      }
