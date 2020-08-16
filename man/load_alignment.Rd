@@ -21,7 +21,7 @@ DNA, RNA (default: protein)}
 \value{
 if the input type is DNA or RNA this function returns an object of
 class DNAbin, if the input type is protein or unspecified (default) this
-function returns an object of class alignment
+function returns an object of class alignment (seqinr package)
 }
 \description{
 this function is wrapper around the functions
