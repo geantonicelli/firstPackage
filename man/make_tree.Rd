@@ -49,7 +49,7 @@ phylo class object
 }
 \description{
 this function is a wrapper around the functions
-\code{'\link[seqnir]{dist.alignment}'}, \code{'\link[ape]{dist.dna}'},
+\code{'dist.alignment'}, \code{'\link[ape]{dist.dna}'},
 \code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
 \code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
 \code{'\link[ape]{boot.phylo}'} and \code{'\link[ape]{plot.phylo}'}. it takes a

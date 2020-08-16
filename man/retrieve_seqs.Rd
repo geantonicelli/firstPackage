@@ -13,13 +13,13 @@ retrieve_seqs(seqnames, acnucdb)
 sequences to be retrieved}
 
 \item{acnucdb}{a character string specifying the name of the ACNUC database
-to be searched. Use \code{'\link{choosebank}'} without arguments to
+to be searched. Use \code{'choosebank'} without arguments to
 see a list of available databases}
 }
 \value{
 this function returns a named list with the sequences matching the
 sequence names of class SeqAcnucWeb retrieved by
-\code{'\link{query}'} based on the provided accession numbers the
+\code{'query'} based on the provided accession numbers the
 name of each list item is composed of the accession number and the length
 of the sequence
 }

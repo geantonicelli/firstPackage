@@ -13,12 +13,12 @@
 #' @param seqnames a character vector specifying the accession numbers of the
 #'   sequences to be retrieved
 #' @param acnucdb a character string specifying the name of the ACNUC database
-#'   to be searched. Use \code{'\link{choosebank}'} without arguments to
+#'   to be searched. Use \code{'choosebank'} without arguments to
 #'   see a list of available databases
 #'
 #' @return this function returns a named list with the sequences matching the
 #'   sequence names of class SeqAcnucWeb retrieved by
-#'   \code{'\link{query}'} based on the provided accession numbers the
+#'   \code{'query'} based on the provided accession numbers the
 #'   name of each list item is composed of the accession number and the length
 #'   of the sequence
 #'
@@ -283,7 +283,7 @@ load_alignment <- function(file, format, type='protein'){
 #' function to calculate a phylogenetic tree
 #'
 #' this function is a wrapper around the functions
-#'   \code{'\link[seqnir]{dist.alignment}'}, \code{'\link[ape]{dist.dna}'},
+#'   \code{'dist.alignment'}, \code{'\link[ape]{dist.dna}'},
 #'   \code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
 #'   \code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
 #'   \code{'\link[ape]{boot.phylo}'} and \code{'\link[ape]{plot.phylo}'}. it takes a
