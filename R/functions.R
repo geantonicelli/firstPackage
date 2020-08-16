@@ -13,12 +13,12 @@
 #' @param seqnames a character vector specifying the accession numbers of the
 #'   sequences to be retrieved
 #' @param acnucdb a character string specifying the name of the ACNUC database
-#'   to be searched. Use \code{'choosebank'} without arguments to
+#'   to be searched. Use \code{'\link[seqinr]{choosebank}'} without arguments to
 #'   see a list of available databases
 #'
 #' @return this function returns a named list with the sequences matching the
 #'   sequence names of class SeqAcnucWeb retrieved by
-#'   \code{'query'} based on the provided accession numbers the
+#'   \code{'\link[seqinr]{query}'} based on the provided accession numbers the
 #'   name of each list item is composed of the accession number and the length
 #'   of the sequence
 #'
@@ -203,7 +203,7 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #'   alignment software
 #'
 #' this function is wrapper around the functions
-#'   \code{'\link{read.alignment}'},
+#'   \code{'\link[seqinr]{read.alignment}'},
 #'   \code{'\link[adegenet]{fasta2DNAbin}'} and \code{'\link[ape]{as.DNAbin}'}.
 #'   The goal of this function is to load different types of sequences alignments,
 #'   i.e. protein, DNA, RNA, in different formats, i.e. fasta, phylip, mase,
