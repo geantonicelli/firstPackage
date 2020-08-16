@@ -25,7 +25,7 @@ function returns an object of class alignment of the package 'seqinr'
 }
 \description{
 this function is wrapper around the functions
-\code{'\link[seqinr]{read.alignment}'},
+\code{'\link{read.alignment}'},
 \code{'\link[adegenet]{fasta2DNAbin}'} and \code{'\link[ape]{as.DNAbin}'}.
 The goal of this function is to load different types of sequences alignments,
 i.e. protein, DNA, RNA, in different formats, i.e. fasta, phylip, mase,
