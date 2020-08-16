@@ -283,7 +283,7 @@ load_alignment <- function(file, format, type='protein'){
 #' function to calculate a phylogenetic tree
 #'
 #' this function is a wrapper around the functions
-#'   \code{'dist.alignment'}, \code{'\link[ape]{dist.dna}'},
+#'   \code{'\link[seqinr]{dist.alignment'}, \code{'\link[ape]{dist.dna}'},
 #'   \code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
 #'   \code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
 #'   \code{'\link[ape]{boot.phylo}'} and \code{'\link[ape]{plot.phylo}'}. it takes a

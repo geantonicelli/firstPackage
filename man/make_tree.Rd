@@ -48,17 +48,7 @@ elaborated plots can be drawn in later steps based on the tree data of the
 phylo class object
 }
 \description{
-this function is a wrapper around the functions
-\code{'dist.alignment'}, \code{'\link[ape]{dist.dna}'},
-\code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
-\code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
-\code{'\link[ape]{boot.phylo}'} and \code{'\link[ape]{plot.phylo}'}. it takes a
-sequences alignment in format alignment of DNAbin matrix and perform all
-transformations and steps to calculate a phylogenetic distance matrix based
-on similarity or identity in the case of proteins or based in evolutionary
-models in the case of DNA or RNA, to perform a phylogenetic clustering and to
-draft plot the results for exploratory visualization in order to adjust and
-compare the calculations
+
 }
 \examples{
 data(phylipProt)
