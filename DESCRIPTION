@@ -10,8 +10,8 @@ Authors@R: person(given="esteban",
 Author: esteban antonicelli [aut, cre]
 Mantainer: esteban antonicelli <esteban.antonicelli@gmail.com>
 Description: retrieve sequences of DNA, RNA or protein from databases structured under ACNUC, print alignments in an order fashion to the console, clean sequences alignments from weak represented regions, load sequences alignments into R and make phylogenetics trees
-License: http://seqinr.r-forge.r-project.org/src/
-URL: GPL (>= 2)
+License: GPL (>= 2)
+URL: https://github.com/geantonicelli/firstPackage
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown=TRUE)
