@@ -21,24 +21,42 @@ DNA, RNA (default: protein)}
 \value{
 if the input type is DNA or RNA this function returns an object of
 class DNAbin, if the input type is protein or unspecified (default) this
-function returns an object of class alignment of the package seqinr
+function returns an object of class alignment of the package 'seqinr'
 }
 \description{
 this function is wrapper around the functions
-\code{\link[seqinr]{read.alignment}},
-\code{\link[adegenet]{fasta2DNAbin}} and \code{\link[ape]{as.DNAbin}}.
+\code{'\link[seqinr]{read.alignment}'},
+\code{'\link[adegenet]{fasta2DNAbin}'} and \code{'\link[ape]{as.DNAbin}'}.
 The goal of this function is to load different types of sequences alignments,
 i.e. protein, DNA, RNA, in different formats, i.e. fasta, phylip, mase,
 clustal or msf and to convert it in the best suitable object class for
-generating a distance matrix either with the seqnir or the ape package
+generating a distance matrix either with the 'seqnir' or the 'ape' package
 }
 \examples{
-fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
-phylipRNA_load  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
-phylipProt_load <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
-clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
-msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
-maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
+fastaRNA_load <- load_alignment(system.file('extdata',
+                                            'spike_align.fasta',
+                                            package='firstPackage'),
+                                 'fasta', 'RNA')
+phylipRNA_load  <- load_alignment(system.file('extdata',
+                                              'spike_align.phy',
+                                              package='firstPackage'),
+                                 'phylip', 'RNA')
+phylipProt_load <- load_alignment(system.file('extdata',
+                                              'spike_prot_align.phy',
+                                              package='firstPackage'),
+                                 'phylip', 'protein')
+clustalRNA_load <- load_alignment(system.file('extdata',
+                                              'spike_align.aln',
+                                              package='firstPackage'),
+                                 'clustal')
+msfRNA_load <- load_alignment(system.file('extdata',
+                                          'orf1ab_align.msf',
+                                          package='firstPackage'),
+                                 'msf', 'RNA')
+maseProtein_load <- load_alignment(system.file('extdata',
+                                               'prot.mase',
+                                               package='firstPackage'),
+                                 'mase')
 data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
 data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
 data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))

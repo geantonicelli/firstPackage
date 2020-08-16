@@ -42,7 +42,7 @@ phylogram, cladogram, fan, unrooted (default), radial or any unambiguous
 abbreviation of these}
 }
 \value{
-the function returns an object of class phylo of the ape package and
+the function returns an object of class phylo of the 'ape' package and
 a draft plot to visualize the phylogenetic calculations. More advanced and
 elaborated plots can be drawn in later steps based on the tree data of the
 phylo class object
