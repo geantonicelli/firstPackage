@@ -2,6 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{print_alignment}
 \alias{print_alignment}
+\alias{\alias{print_alignment}}
 \title{function to print an ordered sequences alignment in chunks of defined size}
 \usage{
 print_alignment(alignment, chunksize = 60)
@@ -27,12 +28,12 @@ of letters printed so far and print this number together with the name of
 each sequence at the end of each chunk
 }
 \examples{
-virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', package='firstPackage'), format='phylip')
-print_alignment(virusaln, 80)
+data(phylipProt)
+print_alignment(phylipProt, 80)
 
 }
 \seealso{
-\code{\link{retrieve_seqs}} \code{\link{clean_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+\code{'\link{retrieve_seqs}'} \code{'\link{clean_alignment}'} \code{'\link{load_alignment}'} \code{'\link{make_tree}'}
 }
 \author{
 gerardo esteban antonicelli

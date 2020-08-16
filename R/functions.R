@@ -13,18 +13,20 @@
 #' @param seqnames a character vector specifying the accession numbers of the
 #'   sequences to be retrieved
 #' @param acnucdb a character string specifying the name of the ACNUC database
-#'   to be searched. Use \code{\link{seqinr::choosebank}} without arguments to
+#'   to be searched. Use \code{'\link[=seqinr]{choosebank}'} without arguments to
 #'   see a list of available databases
 #'
 #' @return this function returns a named list with the sequences matching the
 #'   sequence names of class SeqAcnucWeb retrieved by
-#'   \code{seqinr::query} based on the provided accession numbers the
+#'   \code{'\link[=seqinr]{query}'} based on the provided accession numbers the
 #'   name of each list item is composed of the accession number and the length
 #'   of the sequence
 #'
 #' @author gerardo esteban antonicelli
 #'
-#' @seealso \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+#' @seealso \code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{load_alignment}'} \code{'\link{make_tree}'}
+#'
+#' @aliases \alias{retrieve_seqs}
 #'
 #' @examples
 #' seqs <- retrieve_seqs(c('P06747', 'P0C569', 'O56773', 'Q5VKP1'), 'swissprot')
@@ -73,11 +75,13 @@ retrieve_seqs <- function(seqnames, acnucdb){
 #'
 #' @author gerardo esteban antonicelli
 #'
-#' @seealso \code{\link{retrieve_seqs}} \code{\link{clean_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+#' @seealso \code{'\link{retrieve_seqs}'} \code{'\link{clean_alignment}'} \code{'\link{load_alignment}'} \code{'\link{make_tree}'}
+#'
+#' @aliases \alias{print_alignment}
 #'
 #' @examples
-#' virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', package='firstPackage'), format='phylip')
-#' print_alignment(virusaln, 80)
+#' data(phylipProt)
+#' print_alignment(phylipProt, 80)
 #'
 #' @importFrom seqinr read.alignment
 #' @importFrom Biostrings countPattern
@@ -108,17 +112,17 @@ print_alignment <- function(alignment, chunksize=60){
                             }
 
 #' function to discard very poorly conserved regions from a sequences alignment
-#'   before building a phylogenetic tree
+#' before building a phylogenetic tree
 #'
 #' very poorly conserved regions are likely to be regions that are either not
-#'   homologous between the sequences being considered (and so do not add any
-#'   phylogenetic signal), or are homologous but are so diverged that they are
-#'   very difficult to align accurately (and so may add noise to the phylogenetic
-#'   analysis, and decrease the accuracy of the inferred tree) this function takes
-#'   an alignment in phylip format made by an alignment software like clustal
-#'   omega and clean the alignment based on a defined percentage of non-gap
-#'   positions and a defined percentage of sequence identity between all sequences
-#'   considered for phylogenetic analysis
+#' homologous between the sequences being considered (and so do not add any
+#' phylogenetic signal), or are homologous but are so diverged that they are
+#' very difficult to align accurately (and so may add noise to the phylogenetic
+#' analysis, and decrease the accuracy of the inferred tree) this function takes
+#' an alignment in phylip format made by an alignment software like clustal
+#' omega and clean the alignment based on a defined percentage of non-gap
+#' positions and a defined percentage of sequence identity between all sequences
+#' considered for phylogenetic analysis
 #'
 #' @param alignment object of type alignment in phylip format with the aligned
 #'   sequences to be checked for similarity and cleaned. A file in format phylip
@@ -133,12 +137,15 @@ print_alignment <- function(alignment, chunksize=60){
 #'
 #' @author gerardo esteban antonicelli
 #'
-#' @seealso \code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+#' @seealso \code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'}
+#'   \code{'\link{load_alignment}'} \code{'\link{make_tree}'}
+#'
+#' @aliases \alias{clean_alignment}
 #'
 #' @examples
-#' virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', package='firstPackage'), format='phylip')
-#' cleanedvirusaln <- clean_alignment(virusaln, 30, 30)
-#' print_alignment(cleanedvirusaln)
+#' data(phylipProt)
+#' cleaned_phylipProt <- clean_alignment(phylipProt, 30, 30)
+#' print_alignment(cleaned_phylipProt)
 #'
 #' @export
 clean_alignment <- function(alignment, minpcnongap, minpcid){
@@ -214,13 +221,15 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #'
 #' @author gerardo esteban antonicelli
 #'
-#' @seealso \code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{make_tree}}
+#' @seealso \code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{make_tree}'}
+#'
+#' @aliases \alias{load_alignment}
 #'
 #' @examples
-#' fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
+#' fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), fasta', 'RNA')
 #' phylipRNA_load  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
 #' phylipProt_load <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
-#' loading a RNA sequences alignment as an object of class alignment for the seqinr package and not the default class DNAbin for the ape package
+#' # loading a RNA sequences alignment as an object of class alignment and not the default class DNAbin for the ape package
 #' clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
 #' msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
 #' maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
@@ -258,10 +267,10 @@ load_alignment <- function(file, format, type='protein'){
 #' function to calculate a phylogenetic tree
 #'
 #' this function is a wrapper around the functions
-#'   \code{\link[seqnir]{dist.alignment}}, \code{\link[ape]{dist.dna}},
-#'   \code{\link[ape]{nj}}, \code{\link[ape]{bionj}},
-#'   \code{\link[ape]{fastme.bal}}, \code{\link[ape]{fastme.ols}},
-#'   \code{\link[ape]{boot.phylo}} and \code{\link[ape]{plot.phylo}}. it takes a
+#'   \code{'\link[seqnir]{dist.alignment}'}, \code{'\link[ape]{dist.dna}'},
+#'   \code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
+#'   \code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
+#'   \code{'\link[ape]{boot.phylo}'} and \code{'\link[ape]{plot.phylo}'}. it takes a
 #'   sequences alignment in format alignment of DNAbin matrix and perform all
 #'   transformations and steps to calculate a phylogenetic distance matrix based
 #'   on similarity or identity in the case of proteins or based in evolutionary
@@ -297,7 +306,9 @@ load_alignment <- function(file, format, type='protein'){
 #'
 #' @author gerardo esteban antonicelli
 #'
-#' @seealso \code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{load_alignment}}
+#' @seealso \code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{load_alignment}'}
+#'
+#' @aliases \alias{make_tree}
 #'
 #' @examples
 #' data(phylipProt)

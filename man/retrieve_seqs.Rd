@@ -2,6 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{retrieve_seqs}
 \alias{retrieve_seqs}
+\alias{\alias{retrieve_seqs}}
 \title{function to automatically retrieve sequences from a databank based on
 accession numbers}
 \usage{
@@ -12,13 +13,13 @@ retrieve_seqs(seqnames, acnucdb)
 sequences to be retrieved}
 
 \item{acnucdb}{a character string specifying the name of the ACNUC database
-to be searched. Use \code{\link{seqinr::choosebank}} without arguments to
+to be searched. Use \code{'\link[=seqinr]{choosebank}'} without arguments to
 see a list of available databases}
 }
 \value{
 this function returns a named list with the sequences matching the
 sequence names of class SeqAcnucWeb retrieved by
-\code{seqinr::query} based on the provided accession numbers the
+\code{'\link[=seqinr]{query}'} based on the provided accession numbers the
 name of each list item is composed of the accession number and the length
 of the sequence
 }
@@ -40,7 +41,7 @@ seqs <- retrieve_seqs(c('P06747', 'P0C569', 'O56773', 'Q5VKP1'), 'swissprot')
 
 }
 \seealso{
-\code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+\code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{load_alignment}'} \code{'\link{make_tree}'}
 }
 \author{
 gerardo esteban antonicelli

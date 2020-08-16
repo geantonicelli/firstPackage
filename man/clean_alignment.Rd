@@ -2,6 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{clean_alignment}
 \alias{clean_alignment}
+\alias{\alias{clean_alignment}}
 \title{function to discard very poorly conserved regions from a sequences alignment
 before building a phylogenetic tree}
 \usage{
@@ -34,13 +35,14 @@ positions and a defined percentage of sequence identity between all sequences
 considered for phylogenetic analysis
 }
 \examples{
-virusaln <- read.alignment(file=system.file('extdata', 'phosphoproteins.phy', package='firstPackage'), format='phylip')
-cleanedvirusaln <- clean_alignment(virusaln, 30, 30)
-print_alignment(cleanedvirusaln)
+data(phylipProt)
+cleaned_phylipProt <- clean_alignment(phylipProt, 30, 30)
+print_alignment(cleaned_phylipProt)
 
 }
 \seealso{
-\code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{load_alignment}} \code{\link{make_tree}}
+\code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'}
+\code{'\link{load_alignment}'} \code{'\link{make_tree}'}
 }
 \author{
 gerardo esteban antonicelli

@@ -2,6 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{make_tree}
 \alias{make_tree}
+\alias{\alias{make_tree}}
 \title{function to calculate a phylogenetic tree}
 \usage{
 make_tree(
@@ -48,10 +49,10 @@ phylo class object
 }
 \description{
 this function is a wrapper around the functions
-\code{\link[seqnir]{dist.alignment}}, \code{\link[ape]{dist.dna}},
-\code{\link[ape]{nj}}, \code{\link[ape]{bionj}},
-\code{\link[ape]{fastme.bal}}, \code{\link[ape]{fastme.ols}},
-\code{\link[ape]{boot.phylo}} and \code{\link[ape]{plot.phylo}}. it takes a
+\code{'\link[seqnir]{dist.alignment}'}, \code{'\link[ape]{dist.dna}'},
+\code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
+\code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
+\code{'\link[ape]{boot.phylo}'} and \code{'\link[ape]{plot.phylo}'}. it takes a
 sequences alignment in format alignment of DNAbin matrix and perform all
 transformations and steps to calculate a phylogenetic distance matrix based
 on similarity or identity in the case of proteins or based in evolutionary
@@ -69,7 +70,7 @@ clustalRNATree <- make_tree(clustalRNA, type=RNA)
 
 }
 \seealso{
-\code{\link{retrieve_seqs}} \code{\link{print_alignment}} \code{\link{clean_alignment}} \code{\link{load_alignment}}
+\code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{load_alignment}'}
 }
 \author{
 gerardo esteban antonicelli

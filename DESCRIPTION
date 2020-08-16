@@ -1,20 +1,17 @@
 Package: firstPackage
-Title: automatically retrieve sequences from a databank based on accession numbers
-Version: 0.0.0.9000
-Depends: 
-    seqinr,
-    R (>= 2.10)
-Authors@R: 
-    person(given="esteban",
-           family="antonicelli",
-           role=c("aut", "cre"),
-           email="esteban.antonicelli@gmail.com",
-           comment=c(ORCID="YOUR-ORCID-ID"))
-Mantainer:
-Description: retrieve sequences of DNA, RNA or protein from databases structured under ACNUC and located on the web, the retrieval is limited to accession numbers as selection criteria
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
-URL: https://github.com/geantonicelli/firstPackage
+Title: set of wrapper functions for phylogenetic analysis
+Version: 0.0.1.1
+Depends: R (>= 2.10.0)
+Imports: seqinr, ape, adegenet, Biostrings
+Authors@R: person(given="esteban",
+                  family="antonicelli",
+                  role=c("aut", "cre"),
+                  email="esteban.antonicelli@gmail.com")
+Author: esteban antonicelli [aut, cre]
+Mantainer: esteban antonicelli <esteban.antonicelli@gmail.com>
+Description: retrieve sequences of DNA, RNA or protein from databases structured under ACNUC, print alignments in an order fashion to the console, clean sequences alignments from weak represented regions, load sequences alignments into R and make phylogenetics trees
+License: http://seqinr.r-forge.r-project.org/src/
+URL: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown=TRUE)
