@@ -226,13 +226,12 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #' @aliases \alias{load_alignment}
 #'
 #' @examples
-#' fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), fasta', 'RNA')
+#' fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
 #' phylipRNA_load  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
 #' phylipProt_load <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
 #' clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
 #' msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
 #' maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
-#'
 #' data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
 #' data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
 #' data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))
@@ -312,7 +311,7 @@ load_alignment <- function(file, format, type='protein'){
 #' data(phylipRNA)
 #' data(clustalRNA)
 #' phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, outgroup=YP_0010399)
-#' phylipRNATree <- make_tree(phylipRNA, type=RNA, clustering=fastme.bal, plot=clado)
+#' phylipRNATree <- make_tree(phylipRNA, type=RNA, plot=clado)
 #' clustalRNATree <- make_tree(clustalRNA, type=RNA)
 #'
 #' @importFrom seqinr dist.alignment as.matrix.alignment
@@ -336,8 +335,7 @@ make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NU
                                                           }
                                                      mydist <- dist.dna(DNAbin, model=distmodel)
                                                      }
-                                             algorithm <- substitute(clustering(mydist))
-                                             mytree <- eval(algorithm)
+                                             mytree <- eval(substitute(clustering(mydist)))
                                              mytree <- makeLabel(mytree, space='')
                                              mytree <- ladderize(mytree)
                                              if(out=='NULL'){my_tree <- mytree}

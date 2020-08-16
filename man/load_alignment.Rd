@@ -32,6 +32,21 @@ i.e. protein, DNA, RNA, in different formats, i.e. fasta, phylip, mase,
 clustal or msf and to convert it in the best suitable object class for
 generating a distance matrix either with the seqnir or the ape package
 }
+\examples{
+fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), 'fasta', 'RNA')
+phylipRNA_load  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
+phylipProt_load <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
+clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
+msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
+maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
+data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
+data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
+data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))
+data(clustalRNA); stopifnot(identical(clustalRNA, clustalRNA_load))
+data(msfRNA); stopifnot(identical(msfRNA, msfRNA_load))
+data(maseProtein); stopifnot(identical(maseProtein, maseProtein_load))
+
+}
 \seealso{
 \code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{make_tree}'}
 }
