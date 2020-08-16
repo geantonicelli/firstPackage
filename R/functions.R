@@ -35,7 +35,7 @@
 #' \dontrun{seqs <- retrieve_seqs(accessions, 'genbank')}
 #' \dontrun{str(seqs)}
 #'
-#' @importFrom seqinr choosebank query getSequence
+#' @importFrom seqinr choosebank query getSequence closebank
 #'
 #' @export
 retrieve_seqs <- function(seqnames, acnucdb){
@@ -232,9 +232,7 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #' clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
 #' msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
 #' maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
-#' #
-#' # quality control routine sanity checks:
-#' #
+#'
 #' data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
 #' data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
 #' data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))
@@ -317,21 +315,8 @@ load_alignment <- function(file, format, type='protein'){
 #' phylipRNATree <- make_tree(phylipRNA, type=RNA, clustering=fastme.bal, plot=clado)
 #' clustalRNATree <- make_tree(clustalRNA, type=RNA)
 #'
-#' @importFrom seqinr dist.alignment
-#' @importFrom seqinr as.matrix.alignment
-#' @importFrom ape as.alignment
-#' @importFrom ape as.DNAbin
-#' @importFrom ape dist.dna
-#' @importFrom ape nj
-#' @importFrom ape bionj
-#' @importFrom ape fastme.bal
-#' @importFrom ape fastme.ols
-#' @importFrom ape makeLabel
-#' @importFrom ape ladderize
-#' @importFrom ape root
-#' @importFrom ape boot.phylo
-#' @importFrom ape plot.phylo
-#' @importFrom ape nodelabels
+#' @importFrom seqinr dist.alignment as.matrix.alignment
+#' @importFrom ape as.alignment as.DNAbin dist.dna nj bionj fastme.bal fastme.ols makeLabel ladderize root boot.phylo plot.phylo nodelabels
 #'
 #' @export
 make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NULL, plot=u){
@@ -351,7 +336,8 @@ make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NU
                                                           }
                                                      mydist <- dist.dna(DNAbin, model=distmodel)
                                                      }
-                                             mytree <- eval(substitute(clustering(mydist)))
+                                             algorithm <- substitute(clustering(mydist))
+                                             mytree <- eval(algorithm)
                                              mytree <- makeLabel(mytree, space='')
                                              mytree <- ladderize(mytree)
                                              if(out=='NULL'){my_tree <- mytree}
