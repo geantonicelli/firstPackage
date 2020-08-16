@@ -64,7 +64,7 @@ compare the calculations
 data(phylipProt)
 data(phylipRNA)
 data(clustalRNA)
-phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)
+phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, outgroup=YP_0010399)
 phylipRNATree <- make_tree(phylipRNA, type=RNA, clustering=fastme.bal, plot=clado)
 clustalRNATree <- make_tree(clustalRNA, type=RNA)
 

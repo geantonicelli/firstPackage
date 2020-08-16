@@ -229,7 +229,6 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
 #' fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta', package='firstPackage'), fasta', 'RNA')
 #' phylipRNA_load  <- load_alignment(system.file('extdata', 'spike_align.phy', package='firstPackage'), 'phylip', 'RNA')
 #' phylipProt_load <- load_alignment(system.file('extdata', 'spike_prot_align.phy', package='firstPackage'), 'phylip', 'protein')
-#' # loading a RNA sequences alignment as an object of class alignment and not the default class DNAbin for the ape package
 #' clustalRNA_load <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
 #' msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf', package='firstPackage'), 'msf', 'RNA')
 #' maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase', package='firstPackage'), 'mase')
@@ -314,7 +313,7 @@ load_alignment <- function(file, format, type='protein'){
 #' data(phylipProt)
 #' data(phylipRNA)
 #' data(clustalRNA)
-#' phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, clustering=fastme.ols, outgroup=YP_0010399)
+#' phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, outgroup=YP_0010399)
 #' phylipRNATree <- make_tree(phylipRNA, type=RNA, clustering=fastme.bal, plot=clado)
 #' clustalRNATree <- make_tree(clustalRNA, type=RNA)
 #'
