@@ -3,30 +3,25 @@
 \docType{data}
 \name{clustalRNA}
 \alias{clustalRNA}
-\title{Production and farm value of maple products in Canada}
+\title{alignment of RNA sequences for the spike protein of some sarbecoviruses
+closely related to SARSCoV2}
 \format{
-A data frame with columns:
-\describe{
-\item{Year}{A value between 1924 and 2015.}
-\item{Syrup}{Maple products expressed as syrup, total in thousands of gallons.}
-\item{CAD}{Gross value of maple products in thousands of Canadian dollars.}
-\item{Region}{Postal code abbreviation for territory or province.}
-}
-\link{1} "nb"  "nam" "seq" "com"
+a list with 4 elements \describe{ \item{nb}{number of sequences
+compared} \item{nam}{sequence name (accession number)} \item{seq}{a list of
+RNA sequences} \item{com}{NA} }
 }
 \source{
-Statistics Canada. Table 001-0008 - Production and farm value of
-maple products, annual. \url{http://www5.statcan.gc.ca/cansim/}
+the \href{https://www.ncbi.nlm.nih.gov/genbank/}{genbank} database of
+the National Center for Biotechnology Information or the Universal Protein
+Resource \href{https://www.uniprot.org/}{UniProt} database
 }
 \usage{
 clustalRNA
 }
 \description{
-Production and farm value of maple products in Canada
-}
-\examples{
-\dontrun{
-maple
-}
+14 different sequences of some sarbecoviruses closely related to SARSCoV2
+were retrieve from public databases and compared using CLUSTAL omega (1.2.4)
+alignment software (see examples section for the complete protocol for
+retrieving, saving and processing the data)
 }
 \keyword{datasets}
