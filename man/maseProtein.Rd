@@ -3,30 +3,28 @@
 \docType{data}
 \name{maseProtein}
 \alias{maseProtein}
-\title{Production and farm value of maple products in Canada}
+\title{an example of alignment in mase format of related protein sequences from different taxa}
 \format{
-A data frame with columns:
-\describe{
-\item{Year}{A value between 1924 and 2015.}
-\item{Syrup}{Maple products expressed as syrup, total in thousands of gallons.}
-\item{CAD}{Gross value of maple products in thousands of Canadian dollars.}
-\item{Region}{Postal code abbreviation for territory or province.}
-}
-\link{1} "nb"  "nam" "seq" "com"
+a list of class alignment with 4 elements
+\describe{\item{nb}{number of sequences compared}
+\item{nam}{taxon origen of sequence}
+\item{seq}{a list of protein sequences}
+\item{com}{NA}}
 }
 \source{
-Statistics Canada. Table 001-0008 - Production and farm value of
-maple products, annual. \url{http://www5.statcan.gc.ca/cansim/}
+the Universal Protein Resource \href{https://www.uniprot.org/}{UniProt} database
 }
 \usage{
 maseProtein
 }
 \description{
-Production and farm value of maple products in Canada
+an example of alignment in mase format of related protein sequences from different taxa
 }
-\examples{
-\dontrun{
-maple
+\details{
+\enumerate{
+\item maseProtein_load <- load_alignment(system.file('extdata', 'prot.mase',
+package='firstPackage'), 'mase')
+\item data(maseProtein); stopifnot(identical(maseProtein, maseProtein_load))
 }
 }
 \keyword{datasets}

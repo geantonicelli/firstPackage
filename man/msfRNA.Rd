@@ -3,31 +3,38 @@
 \docType{data}
 \name{msfRNA}
 \alias{msfRNA}
-\title{Production and farm value of maple products in Canada}
+\title{alignment of RNA sequences for the replicase of some sarbecoviruses
+closely related to SARSCoV2 in msf format}
 \format{
-A data frame with columns:
-\describe{
-\item{Year}{A value between 1924 and 2015.}
-\item{Syrup}{Maple products expressed as syrup, total in thousands of gallons.}
-\item{CAD}{Gross value of maple products in thousands of Canadian dollars.}
-\item{Region}{Postal code abbreviation for territory or province.}
-}
-\link{1} "QHD43415_1"     "AAP30028_1"     "QHR63299_1"     "AGZ48830_1"     "YP_001039970_1" "ALK02468_1"     "AVP78030_1"     "AVP78041_1"     "AAY88865_2"     "AGZ48817_1"
-\link{11} "AAS00002_1"     "AAP51225_1"     "AAU04645_1"     "YP_003858583_1"
+a matrix of class DNAbin
+\describe{\item{attribute (dimnames)}{sequence name (accession number)}}
 }
 \source{
-Statistics Canada. Table 001-0008 - Production and farm value of
-maple products, annual. \url{http://www5.statcan.gc.ca/cansim/}
+the \href{https://www.ncbi.nlm.nih.gov/genbank/}{genbank} database of
+the National Center for Biotechnology Information or the Universal Protein
+Resource \href{https://www.uniprot.org/}{UniProt} database
 }
 \usage{
 msfRNA
 }
 \description{
-Production and farm value of maple products in Canada
+14 different sequences of some sarbecoviruses closely related to SARSCoV2
+were retrieved from public databases and compared using CLUSTAL omega (1.2.4)
+alignment software with the output in msf format (see details for
+the complete protocol for retrieving, saving and processing the data)
 }
-\examples{
-\dontrun{
-maple
+\details{
+\enumerate{
+\item orf1abRNA_annot <- read.csv(system.file('extdata', 'orf1ab_annot.csv',
+package='firstPackage'))
+\item accessions <- orf1abRNA_annot$accession
+\item download manually each sequence from 'genbank' and save as orf1ab.fasta and
+perform an alignment with clustal omega with following commands
+(it needs to be installed locally or use a web interface)
+\item clustalo --threads=4 -v --outfmt=msf -t RNA -i
+./data/sequences/orf1ab.fasta -o ./data/sequences/orf1ab_align.msf
+\item msfRNA_load <- load_alignment(system.file('extdata', 'orf1ab_align.msf',
+package='firstPackage'), 'msf', 'RNA')
 }
 }
 \keyword{datasets}

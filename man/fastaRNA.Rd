@@ -3,31 +3,38 @@
 \docType{data}
 \name{fastaRNA}
 \alias{fastaRNA}
-\title{Production and farm value of maple products in Canada}
+\title{alignment of RNA sequences for the spike protein of some sarbecoviruses
+closely related to SARSCoV2 in fasta format}
 \format{
-A data frame with columns:
-\describe{
-\item{Year}{A value between 1924 and 2015.}
-\item{Syrup}{Maple products expressed as syrup, total in thousands of gallons.}
-\item{CAD}{Gross value of maple products in thousands of Canadian dollars.}
-\item{Region}{Postal code abbreviation for territory or province.}
-}
-\link{1} "QHD43416.1"     "AAP30030.1"     "QHR63300.2"     "AGZ48831.1"     "YP_001039971.1" "ALK02457.1"     "AVP78031.1"     "AVP78042.1"     "AAY88866.1"     "AGZ48818.1"
-\link{11} "AAS00003.1"     "AAP51227.1"     "AAU04646.1"     "YP_003858584.1"
+a matrix of class DNAbin
+\describe{\item{attribute (dimnames)}{sequence name (accession number)}}
 }
 \source{
-Statistics Canada. Table 001-0008 - Production and farm value of
-maple products, annual. \url{http://www5.statcan.gc.ca/cansim/}
+the \href{https://www.ncbi.nlm.nih.gov/genbank/}{genbank} database of
+the National Center for Biotechnology Information or the Universal Protein
+Resource \href{https://www.uniprot.org/}{UniProt} database
 }
 \usage{
 fastaRNA
 }
 \description{
-Production and farm value of maple products in Canada
+14 different sequences of some sarbecoviruses closely related to SARSCoV2
+were retrieved from public databases and compared using CLUSTAL omega (1.2.4)
+alignment software with the output in fasta format (see details for
+the complete protocol for retrieving, saving and processing the data)
 }
-\examples{
-\dontrun{
-maple
+\details{
+\enumerate{
+\item spikeRNA_annot <- read.csv(system.file('extdata', 'spike_annot.csv',
+package='firstPackage'))
+\item accessions <- spikeRNA_annot$accession
+\item download manually each sequence from 'genbank' and save as spike.fasta and
+perform an alignment with clustal omega with following commands
+(it needs to be installed locally or use a web interface)
+\item clustalo --threads=4 -v --outfmt=fasta -t RNA -i
+./data/sequences/spike.fasta -o ./data/sequences/spike_align.fasta
+\item fastaRNA_load <- load_alignment(system.file('extdata', 'spike_align.fasta',
+package='firstPackage'), 'fasta')
 }
 }
 \keyword{datasets}
