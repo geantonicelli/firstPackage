@@ -431,7 +431,7 @@ make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NU
 #' phylipRNAtree <- max_parsimony(phylipRNA, RNA, fastme.bal)
 #' phylipProtTree <- max_parsimony(phylipProt, protein, outgroup=YP_0010399)
 #' clustalRNAtree <- max_parsimony(clustalRNA, type=RNA, clustering=bionj)
-#' plot.phylo(phylipRNAtree, type='u')
+#' \dontrun{plot.phylo(phylipRNAtree, type='u')}
 #'
 #' @importFrom seqinr dist.alignment
 #' @importFrom ape as.DNAbin dist.dna nj bionj fastme.bal fastme.ols makeLabel
