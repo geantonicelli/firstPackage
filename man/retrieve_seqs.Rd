@@ -43,7 +43,9 @@ seqs <- retrieve_seqs(c('P06747', 'P0C569', 'O56773', 'Q5VKP1'), 'swissprot')
 
 }
 \seealso{
-\code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{load_alignment}'} \code{'\link{make_tree}'}
+\code{'\link{print_alignment}'} \code{'\link{clean_alignment}'}
+\code{'\link{load_alignment}'} \code{'\link{make_tree}'}
+\code{'\link{max_parsimony}'}
 }
 \author{
 gerardo esteban antonicelli

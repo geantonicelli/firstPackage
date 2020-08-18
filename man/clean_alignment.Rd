@@ -43,6 +43,7 @@ print_alignment(cleaned_phylipProt)
 \seealso{
 \code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'}
 \code{'\link{load_alignment}'} \code{'\link{make_tree}'}
+\code{'\link{max_parsimony}'}
 }
 \author{
 gerardo esteban antonicelli

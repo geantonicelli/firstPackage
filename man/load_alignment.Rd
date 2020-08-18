@@ -66,7 +66,9 @@ data(maseProtein); stopifnot(identical(maseProtein, maseProtein_load))
 
 }
 \seealso{
-\code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'} \code{'\link{clean_alignment}'} \code{'\link{make_tree}'}
+\code{'\link{retrieve_seqs}'} \code{'\link{print_alignment}'}
+\code{'\link{clean_alignment}'} \code{'\link{make_tree}'}
+\code{'\link{max_parsimony}'}
 }
 \author{
 gerardo esteban antonicelli
