@@ -423,12 +423,14 @@ make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NU
 #' @aliases \alias{max_parsimony}
 #'
 #' @examples
-#' data(phylipProt)
+#' data(fastaRNA)
 #' data(phylipRNA)
-#' data(clustalRNA)
-#' phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, outgroup=YP_0010399)
-#' phylipRNATree <- make_tree(phylipRNA, type=RNA, plot=clado)
-#' clustalRNATree <- make_tree(clustalRNA, type=RNA)
+#' data(phylipProt)
+#' clustalRNA <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
+#' fastaRNAtree <- max_parsimony(alignment=fastaRNA, type=RNA, clustering=fastme.ols)
+#' phylipRNAtree <- max_parsimony(phylipRNA, RNA, fastme.bal)
+#' phylipProtTree <- max_parsimony(phylipProt, protein, outgroup=YP_0010399)
+#' clustalRNAtree <- max_parsimony(clustalRNA, type=RNA, clustering=bionj)
 #'
 #' @importFrom seqinr dist.alignment
 #' @importFrom ape as.DNAbin dist.dna nj bionj fastme.bal fastme.ols makeLabel

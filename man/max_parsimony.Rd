@@ -43,12 +43,14 @@ RNA, to perform a phylogenetic clustering and to optimise the phylogeny by a
 maximum parsimony based method
 }
 \examples{
-data(phylipProt)
+data(fastaRNA)
 data(phylipRNA)
-data(clustalRNA)
-phylipProtTree <- make_tree(phylipProt, type=protein, model=K80, outgroup=YP_0010399)
-phylipRNATree <- make_tree(phylipRNA, type=RNA, plot=clado)
-clustalRNATree <- make_tree(clustalRNA, type=RNA)
+data(phylipProt)
+clustalRNA <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
+fastaRNAtree <- max_parsimony(alignment=fastaRNA, type=RNA, clustering=fastme.ols)
+phylipRNAtree <- max_parsimony(phylipRNA, RNA, fastme.bal)
+phylipProtTree <- max_parsimony(phylipProt, protein, outgroup=YP_0010399)
+clustalRNAtree <- max_parsimony(clustalRNA, type=RNA, clustering=bionj)
 
 }
 \seealso{
