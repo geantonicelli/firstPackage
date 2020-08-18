@@ -426,8 +426,12 @@ make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NU
 #' data(fastaRNA)
 #' data(phylipRNA)
 #' data(phylipProt)
-#' clustalRNA <- load_alignment(system.file('extdata', 'spike_align.aln', package='firstPackage'), 'clustal')
-#' fastaRNAtree <- max_parsimony(alignment=fastaRNA, type=RNA, clustering=fastme.ols)
+#' clustalRNA <- load_alignment(system.file('extdata',
+#'                                          'spike_align.aln',
+#'                                          package='firstPackage'),
+#'                              'clustal')
+#' fastaRNAtree <- max_parsimony(alignment=fastaRNA, type=RNA,
+#'                               clustering=fastme.ols)
 #' phylipRNAtree <- max_parsimony(phylipRNA, RNA, fastme.bal)
 #' phylipProtTree <- max_parsimony(phylipProt, protein, outgroup=YP_0010399)
 #' clustalRNAtree <- max_parsimony(clustalRNA, type=RNA, clustering=bionj)
