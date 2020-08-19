@@ -443,7 +443,7 @@ make_tree <- function(alignment, type, model=TN93, clustering=bionj, outgroup=NU
 #' @importFrom phangorn as.phyDat optim.parsimony
 #'
 #' @export
-max_parsimony <- function(alignment, type, clustering=nj, outgroup=NULL){
+max_parsimony <- function(alignment, type, clustering=bionj, outgroup=NULL){
                           seqtype <- deparse(substitute(type))
                           out <- deparse(substitute(outgroup))
                           if(seqtype=='protein'){

@@ -5,7 +5,7 @@
 \alias{\alias{max_parsimony}}
 \title{function to calculate a phylogenetic tree}
 \usage{
-max_parsimony(alignment, type, clustering = nj, outgroup = NULL)
+max_parsimony(alignment, type, clustering = bionj, outgroup = NULL)
 }
 \arguments{
 \item{alignment}{an object of class alignment or DNAbin containing a DNA, RNA
