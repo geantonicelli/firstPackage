@@ -173,7 +173,7 @@ clean_alignment <- function(alignment, minpcnongap, minpcid){
                                     }
                                 pcnongap <- (nongap*100)/numseqs
                                 if(pcnongap >= minpcnongap){
-                                   numpairs <- 0
+                                   numpairs <- 0.01
                                    numid <- 0
                                    for(j in 1:(numseqs-1)){
                                        seqj <- alignment$seq[[j]]
