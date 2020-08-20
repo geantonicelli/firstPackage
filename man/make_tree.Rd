@@ -3,7 +3,7 @@
 \name{make_tree}
 \alias{make_tree}
 \alias{\alias{make_tree}}
-\title{function to calculate a phylogenetic tree}
+\title{function to calculate a distance-based phylogenetic tree with bootstrapping validation}
 \usage{
 make_tree(
   alignment,
@@ -54,7 +54,7 @@ this function is a wrapper around the functions
 \code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
 \code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
 \code{'\link[ape]{boot.phylo}'} and \code{'\link[ape]{plot.phylo}'}. it takes
-a sequences alignment in format alignment of DNAbin matrix and perform all
+a sequences alignment in format 'alignment' of 'DNAbin' matrix and perform all
 transformations and steps to calculate a phylogenetic distance matrix based
 on similarity or identity in the case of proteins or based in evolutionary
 models in the case of DNA or RNA, to perform a distance-based phylogenetic

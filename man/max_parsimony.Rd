@@ -3,7 +3,7 @@
 \name{max_parsimony}
 \alias{max_parsimony}
 \alias{\alias{max_parsimony}}
-\title{function to calculate a phylogenetic tree}
+\title{function to calculate a maximum pasimony phylogenetic tree}
 \usage{
 max_parsimony(alignment, type, clustering = bionj, outgroup = NULL)
 }
@@ -26,7 +26,7 @@ as root for building the tree. The default value is NULL leading to an
 unrooted tree}
 }
 \value{
-the function returns an object of class phylo of the 'ape' package.
+the function returns an object of class 'phylo' of the 'ape' package.
 Advanced and elaborated plots can be drawn in later steps based on the tree
 data of the phylo class object
 }
@@ -34,13 +34,13 @@ data of the phylo class object
 this function is a wrapper around the functions
 \code{'\link[seqinr]{dist.alignment}'}, \code{'\link[ape]{dist.dna}'},
 \code{'\link[ape]{nj}'}, \code{'\link[ape]{bionj}'},
-\code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'},
+\code{'\link[ape]{fastme.bal}'}, \code{'\link[ape]{fastme.ols}'} and
 \code{'\link[phangorn]{optim.parsimony}'}. it takes a sequences alignment in
-format alignment of DNAbin matrix and perform all transformations and steps
-to calculate a phylogenetic distance matrix based on similarity or identity
-in the case of proteins or based in evolutionary models in the case of DNA or
-RNA, to perform a phylogenetic clustering and to optimise the phylogeny by a
-maximum parsimony based method
+format 'alignment' of 'DNAbin' matrix and perform all transformations and
+steps to calculate a phylogenetic distance matrix based on similarity or
+identity in the case of proteins or based in evolutionary models in the case
+of DNA or RNA, to perform a phylogenetic clustering and to optimise the
+phylogeny by a maximum parsimony algorithm
 }
 \examples{
 data(fastaRNA)
