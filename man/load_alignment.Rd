@@ -59,7 +59,6 @@ maseProtein_load <- load_alignment(system.file('extdata',
                                  'mase')
 data(fastaRNA); stopifnot(identical(fastaRNA, fastaRNA_load))
 data(phylipRNA); stopifnot(identical(phylipRNA, phylipRNA_load))
-data(phylipProt); stopifnot(identical(phylipProt, phylipProt_load))
 data(clustalRNA); stopifnot(identical(clustalRNA, clustalRNA_load))
 data(msfRNA); stopifnot(identical(msfRNA, msfRNA_load))
 data(maseProtein); stopifnot(identical(maseProtein, maseProtein_load))
