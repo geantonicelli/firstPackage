@@ -76,18 +76,12 @@ maximum likelihood algorithm
 }
 \examples{
 data(fastaRNA)
-data(phylipRNA)
 data(phylipProt)
-clustalRNA <- load_alignment(system.file('extdata',
-                                         'spike_align.aln',
-                                         package='firstPackage'),
-                             'clustal')
-fastaRNAtree <- max_parsimony(alignment=fastaRNA, type=RNA,
-                              clustering=fastme.ols)
-phylipRNAtree <- max_parsimony(phylipRNA, RNA, fastme.bal)
-phylipProtTree <- max_parsimony(phylipProt, protein, outgroup=YP_0010399)
-clustalRNAtree <- max_parsimony(clustalRNA, type=RNA, clustering=bionj)
-\dontrun{plot.phylo(phylipRNAtree, type='u')}
+mytree <- maxLikelihood(fastaRNA, type=RNA, clustering=fastme.bal,
+                        pml.model=GTR, clean=FALSE)
+mytree <- maxLikelihood(phylipProt, type=protein, pml.model=Blosum62,
+                        outgroup=YP_0010399)
+\dontrun{plot.phylo(mytree, type='u')}
 
 }
 \seealso{
