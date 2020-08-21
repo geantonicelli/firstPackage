@@ -77,8 +77,8 @@ maximum likelihood algorithm
 \examples{
 data(fastaRNA)
 data(phylipProt)
-\dontrun{mytree <- max_likelihood(fastaRNA, type=RNA, clustering=fastme.bal,
-                        pml.model=GTR, clean=FALSE)}
+mytree <- max_likelihood(fastaRNA, type=RNA, clustering=fastme.bal,
+                        pml.model=GTR, clean=FALSE)
 \dontrun{mytree <- max_likelihood(phylipProt, type=protein, pml.model=Blosum62,
                         outgroup=YP_0010399)}
 \dontrun{plot.phylo(mytree, type='u')}
